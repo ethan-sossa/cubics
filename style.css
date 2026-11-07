@@ -1,0 +1,131 @@
+:root {
+    --bg: black;
+    --text: white;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Helvetica, Arial, sans-serif;
+    list-style: none;
+}
+
+header {
+    background-color: var(--text);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    list-style: none;
+}
+
+main {
+    padding: 20px;
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    font-weight: bold;
+}
+
+nav li {
+    flex: 1;
+    text-align: center;
+}
+
+nav a {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 0 3px;
+    transition: color 0.2s ease-in-out;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    transition: width 0.2s ease-in-out;
+}
+
+nav a:hover::before,
+nav a:focus-visible::before {
+    width: 100%;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        margin-top: 10px;
+    }
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    text-align: center;
+}
+
+.start-button {
+    padding: 9px 21px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px white solid;
+    transition: background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+}
+
+.start-button:hover,
+.start-button:focus-visible {
+    background: black;
+    color: white;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.flex-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
